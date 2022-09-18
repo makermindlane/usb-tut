@@ -39,10 +39,10 @@ void init_core() {
     SET_BIT(usb_otg_global->GCCFG, USB_OTG_GCCFG_VBUSBSEN);
 
     // Unmasks the main usb core interrupts.
-    SET_BIT(usb_otg_global->GINTMSK, USB_OTG_GINTMSK_USBRST | USB_OTG_GINTMSK_ENUMDNEM |
-                                         USB_OTG_GINTMSK_SOFM | USB_OTG_GINTMSK_USBSUSPM |
-                                         USB_OTG_GINTMSK_WUIM | USB_OTG_GINTMSK_IEPINT |
-                                         USB_OTG_GINTMSK_RXFLVLM);
+    SET_BIT(usb_otg_global->GINTMSK,
+            USB_OTG_GINTMSK_USBRST | USB_OTG_GINTMSK_ENUMDNEM | USB_OTG_GINTMSK_SOFM |
+                USB_OTG_GINTMSK_USBSUSPM | USB_OTG_GINTMSK_WUIM | USB_OTG_GINTMSK_IEPINT |
+                USB_OTG_GINTMSK_OEPINT | USB_OTG_GINTMSK_RXFLVLM);
 
     // Clear all pending interrupts.
     WRITE_REG(usb_otg_global->GINTSTS, ~(0UL));
